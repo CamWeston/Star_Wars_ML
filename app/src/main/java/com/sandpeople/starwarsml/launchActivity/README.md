@@ -1,0 +1,1 @@
+The launch screen for the application with animations.
