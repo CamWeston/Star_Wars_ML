@@ -81,3 +81,13 @@ lint/outputs/
 lint/tmp/
 # lint/reports/
 app/libs/
+.idea/codeStyles/
+.idea/misc.xml
+.idea/runConfigurations.xml
+app/.DS_Store
+build.gradle
+gradle.properties
+gradle/
+gradlew
+gradlew.bat
+settings.gradle
