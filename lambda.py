@@ -29,13 +29,3 @@ def lambda_handler(event, context):
         'statusCode': 200,
         'body': json.dumps(val)
     }
-
-'''Test the API'''
-# handle = { 'handle' : 'realDonaldTrump' }
-#
-# lamdaEndpoint = 'https://q6yxb3mll8.execute-api.us-east-1.amazonaws.com/live/handle'
-# HEADERS = {"Content-Type" : 'application/json'}
-#
-# response = requests.post(url=lamdaEndpoint, data=json.dumps(handle))
-# print(response.text)
-
