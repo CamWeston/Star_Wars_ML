@@ -10,7 +10,7 @@
     android:id="@+id/constraintLayout">
     
     <Button
-        android:id="@+id/button"
+        android:id="@+id/launch_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="162dp"
@@ -28,6 +28,7 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/TwitterHandle"
+        android:maxLength="15"
         android:layout_width="341dp"
         android:layout_height="83dp"
         android:layout_marginStart="35dp"
@@ -41,7 +42,7 @@
         android:selectAllOnFocus="false"
         android:singleLine="true"
         android:textColor="@android:color/background_light"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/launch_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
