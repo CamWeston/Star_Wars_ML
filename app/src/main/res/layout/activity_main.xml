@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
+    android:background="@drawable/searchactivity_mainbackground"
+    tools:context=".MainActivity"
+    android:id="@+id/constraintLayout">
+    
     <Button
-        android:id="@+id/button"
+        android:id="@+id/launch_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="162dp"
         android:layout_marginTop="143dp"
         android:layout_marginEnd="162dp"
         android:layout_marginBottom="277dp"
+        android:background="@drawable/launch_button_bottom_image"
         android:text="Launch"
+        android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/TwitterHandle" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="38dp"
-        android:layout_marginBottom="105dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText">
-
-    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText"
+        android:id="@+id/TwitterHandle"
+        android:maxLength="15"
         android:layout_width="341dp"
         android:layout_height="83dp"
         android:layout_marginStart="35dp"
         android:layout_marginTop="350dp"
         android:layout_marginEnd="35dp"
         android:layout_marginBottom="20dp"
-        android:hint="Search"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        android:background="@android:color/holo_orange_light"
+        android:backgroundTint="#FFE300"
+        android:hint="Enter Twitter Handle"
+        android:inputType="textPersonName|textCapCharacters"
+        android:selectAllOnFocus="false"
+        android:singleLine="true"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintBottom_toTopOf="@+id/launch_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
