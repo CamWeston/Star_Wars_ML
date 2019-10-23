@@ -3,4 +3,9 @@
     <string name="activity_results_republic_exit_button">Inspect another rebel sympathizer</string>
     <string name="activity_results_empire_exit_button">Inspect another possible loyalist</string>
     <string name="activity_results_exit_default_text_button">Inspect another person</string>
+
+    <string name="title_activity_transition">TransitionActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_results">ResultsActivity</string>
 </resources>

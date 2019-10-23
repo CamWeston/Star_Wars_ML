@@ -1,5 +1,6 @@
 package com.sandpeople.starwarsml;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
@@ -34,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         twitterHandle.addTextChangedListener(handleWatcher);
         //twitterHandle.addTextChangedListener(watcher);
 
-
         Button launchButton = findViewById(R.id.launch_button);
         launchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
                 Log.i("MainActivity::" + R.id.launch_button,"Currently skipping username verification.");
                 if (enteredTwitterHandleIsValid()) {
-
+                    Intent intent = new Intent(getApplicationContext(), TransitionActivity.class);
+                    startActivity(intent);
                 }
 
             }
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private boolean enteredTwitterHandleIsValid() {
 
+        // Needs implementation
         return true;
 
     }
