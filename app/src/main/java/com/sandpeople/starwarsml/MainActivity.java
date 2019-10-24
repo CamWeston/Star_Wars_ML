@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
         launchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //System.out.println(twitterHandle.toString());
             }
 
         });
@@ -82,15 +81,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                    String username = s.toString();
-                    //if the character count is 15 and there is
-                //no more input from the keyboard
-                if(username.length() == USERNAMELIMIT){
-                    twitterHandle.getText();
-                    System.out.println(username);
-                }
 
-            }
+                }
         };
 }
 
