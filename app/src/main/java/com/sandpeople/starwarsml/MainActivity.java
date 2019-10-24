@@ -16,8 +16,8 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static boolean DEV_MODE = true;
     private TextInputEditText twitterHandle;
-
     private final int USERNAMELIMIT = 15;
 
     //holds the twitter username entered
@@ -50,6 +50,12 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (DEV_MODE) System.out.println("RESUMED FROM RESULTS_ACTIVITY");
     }
 
     /**
