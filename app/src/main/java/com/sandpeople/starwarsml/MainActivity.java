@@ -5,12 +5,11 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 
 
@@ -35,27 +34,30 @@ public class MainActivity extends AppCompatActivity {
         twitterHandle.addTextChangedListener(handleWatcher);
         //twitterHandle.addTextChangedListener(watcher);
 
-        Button launchButton = findViewById(R.id.launch_button);
-        launchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Log.i("MainActivity::" + R.id.launch_button,"Currently skipping username verification.");
-                if (enteredTwitterHandleIsValid()) {
-                    Intent intent = new Intent(getApplicationContext(), TransitionActivity.class);
-                    startActivity(intent);
-                }
-
-            }
-
-        });
-
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        if (DEV_MODE) System.out.println("RESUMED FROM RESULTS_ACTIVITY");
+        if (DEV_MODE) System.out.println("MAIN_ACTIVITY RESUMED FROM RESULTS_ACTIVITY");
+    }
+
+    /**
+     * OnClick action for 'launch_button'.
+     * @param view Context current view.
+     */
+    public void goToTransitionActivity(View view) {
+        if (DEV_MODE) System.out.println("CURRENTLY SKIPPING TWITTER HANDLE VERIFICATION");
+
+        if (enteredTwitterHandleIsValid()) {
+            if (DEV_MODE) System.out.println("GOING TO TRANSITION_ACTIVITY FROM MAIN_ACTIVITY");
+            Intent intent = new Intent(this, TransitionActivity.class);
+            startActivity(intent);
+        } else {
+            Snackbar.make(view, "Enter a valid Twitter handle, you must", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+        }
+
     }
 
     /**
