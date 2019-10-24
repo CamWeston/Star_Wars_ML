@@ -4,17 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".resultsActivity.ResultsActivity">
+    tools:context=".ResultsActivity">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="@string/activity_results_exit_default_text_button"
+    <include
+        android:id="@+id/include"
+        layout="@layout/content_results"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-78dp" />
+
+    <ImageView
+        android:id="@+id/analysis_result_character_image_view"
+        android:layout_width="188dp"
+        android:layout_height="181dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/include"
+        app:layout_constraintVertical_bias="0.26"
+        app:srcCompat="@mipmap/ic_launcher"
+        android:contentDescription="TODO" />
+
+    <TextView
+        android:id="@+id/analysis_result_text_view"
+        android:layout_width="181dp"
+        android:layout_height="30dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/include"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/analysis_result_character_image_view"
+        app:layout_constraintVertical_bias="0.060000002" />
+
+    <Button
+        android:id="@+id/close_results_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EXIT"
+        app:layout_constraintBottom_toBottomOf="@+id/include"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/analysis_result_text_view"
+        app:layout_constraintVertical_bias="0.94"
+        android:onClick="closeThis"
+    />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,8 @@
+# Sample format. Can be different, but this is the essential data needed for 'ResultsActivity'.
+data = {
+    "tweets": [
+        {"tweetContent": "String"},
+        ...
+    ],
+    "analysisResult": "String"
+}

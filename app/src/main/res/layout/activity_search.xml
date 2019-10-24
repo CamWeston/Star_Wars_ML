@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/searchactivity_mainbackground"
-    tools:context=".MainActivity"
+    tools:context=".SearchActivity"
     android:id="@+id/constraintLayout">
     
     <Button
@@ -23,7 +23,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TwitterHandle" />
+        app:layout_constraintTop_toBottomOf="@+id/TwitterHandle"
+        android:onClick="goToTransitionActivity"
+    />
 
 
     <com.google.android.material.textfield.TextInputEditText
