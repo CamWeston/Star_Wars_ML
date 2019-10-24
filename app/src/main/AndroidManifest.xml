@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.sandpeople.starwarsml">
 
     <application
@@ -8,19 +9,21 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.NoActionBar">
+        android:theme="@style/Theme.AppCompat.NoActionBar"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity
             android:name=".ResultsActivity"
             android:label="@string/title_activity_results"
-            android:theme="@style/NoActionBar"></activity>
+            android:theme="@style/NoActionBar"
+        />
         <activity
             android:name=".TransitionActivity"
             android:label="@string/title_activity_transition"
-            android:theme="@style/NoActionBar" />
-        <activity android:name=".MainActivity">
+            android:theme="@style/NoActionBar"
+        />
+        <activity android:name=".SearchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

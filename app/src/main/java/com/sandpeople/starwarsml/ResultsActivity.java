@@ -7,7 +7,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import static com.sandpeople.starwarsml.MainActivity.DEV_MODE;
+import static com.sandpeople.starwarsml.SearchActivity.DEV_MODE;
 
 public class ResultsActivity extends AppCompatActivity {
 
@@ -27,7 +27,7 @@ public class ResultsActivity extends AppCompatActivity {
 
     public void closeThis(View view) {
         if (DEV_MODE) System.out.println("GOING TO MAIN_ACTIVITY FROM RESULTS_ACTIVITY");
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, SearchActivity.class);
         startActivity(intent);
     }
 

@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static com.sandpeople.starwarsml.MainActivity.DEV_MODE;
+import static com.sandpeople.starwarsml.SearchActivity.DEV_MODE;
 
 public class TransitionActivity extends AppCompatActivity {
 
