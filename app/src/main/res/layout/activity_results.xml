@@ -13,7 +13,7 @@
         tools:layout_editor_absoluteY="-78dp" />
 
     <ImageView
-        android:id="@+id/analysis_result_character_image_view"
+        android:id="@+id/character_profile"
         android:layout_width="188dp"
         android:layout_height="181dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -25,14 +25,14 @@
         android:contentDescription="TODO" />
 
     <TextView
-        android:id="@+id/analysis_result_text_view"
+        android:id="@+id/character_name"
         android:layout_width="181dp"
         android:layout_height="30dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="@+id/include"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/analysis_result_character_image_view"
+        app:layout_constraintTop_toBottomOf="@+id/character_profile"
         app:layout_constraintVertical_bias="0.060000002" />
 
     <Button
@@ -43,7 +43,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/include"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/analysis_result_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/character_name"
         app:layout_constraintVertical_bias="0.94"
         android:onClick="closeThis"
     />
