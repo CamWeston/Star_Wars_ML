@@ -8,7 +8,7 @@
     android:background="@drawable/searchactivity_mainbackground"
     tools:context=".SearchActivity"
     android:id="@+id/constraintLayout">
-    
+
     <Button
         android:id="@+id/launch_button"
         android:layout_width="wrap_content"
@@ -17,37 +17,58 @@
         android:layout_marginTop="143dp"
         android:layout_marginEnd="162dp"
         android:layout_marginBottom="277dp"
-        android:background="@drawable/launch_button_bottom_image"
+        android:background="@drawable/rounded_edges"
+        android:fontFamily="@font/press_start_2p"
+        android:onClick="goToTransitionActivity"
         android:text="Launch"
-        android:textColor="@android:color/background_light"
+        android:textColor="@android:color/holo_purple"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TwitterHandle"
-        android:onClick="goToTransitionActivity"
-    />
+        app:layout_constraintTop_toBottomOf="@+id/TwitterHandle" />
 
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/TwitterHandle"
-        android:maxLength="15"
         android:layout_width="341dp"
         android:layout_height="83dp"
         android:layout_marginStart="35dp"
         android:layout_marginTop="350dp"
         android:layout_marginEnd="35dp"
         android:layout_marginBottom="20dp"
+        android:background="@drawable/rounded_edges"
+        android:fontFamily="@font/press_start_2p"
         android:hint="Enter Twitter Handle"
-        android:textColorHint="@android:color/holo_purple"
         android:inputType="textPersonName|textCapCharacters"
+        android:maxLength="15"
         android:selectAllOnFocus="false"
         android:singleLine="true"
-        android:textColor="@android:color/white"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_purple"
+        android:textColorHint="@android:color/holo_purple"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/launch_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/Search"
+        android:layout_width="254dp"
+        android:layout_height="83dp"
+        android:fontFamily="@font/press_start_2p"
+        android:text="SEARCH"
+        android:textAlignment="center"
+        android:textColor="#FFE204"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:layout_constraintBottom_toTopOf="@+id/TwitterHandle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
