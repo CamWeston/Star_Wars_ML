@@ -3,6 +3,7 @@ package com.sandpeople.starwarsml;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -34,6 +35,20 @@ public class SearchActivity extends AppCompatActivity {
         twitterHandle.addTextChangedListener(handleWatcher);
         //twitterHandle.addTextChangedListener(watcher);
 
+        setThreadPolicy();
+
+    }
+
+    private void setThreadPolicy(){
+        int SDK_INT = android.os.Build.VERSION.SDK_INT;
+        if (SDK_INT > 8)
+        {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+                    .permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+            //your codes here
+
+        }
     }
 
     @Override
@@ -84,6 +99,8 @@ public class SearchActivity extends AppCompatActivity {
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
+           
+
             String username = s.toString();
             //no text has been entered
             if(username.length() == 0){
