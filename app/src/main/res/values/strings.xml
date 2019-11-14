@@ -18,5 +18,6 @@
     <string name="vader_display_name">Darth Vader</string>
     <string name="yoda_display_name">Yoda</string>
     <string name="display_name">NIL</string>
+    <string name="star_wars_ml">Star Wars ML</string>
 
 </resources>
