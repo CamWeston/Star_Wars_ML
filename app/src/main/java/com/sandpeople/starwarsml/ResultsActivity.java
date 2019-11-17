@@ -24,8 +24,8 @@ public class ResultsActivity extends AppCompatActivity {
         fakeAnalysisResult = "BEN";
         fakeTweets = new String[]{"This is a tweet", "This is another tweet"};
 
-        resultTextView = findViewById(R.id.character_name);
-        resultTextView.setText(getCharacterDisplayName(fakeAnalysisResult));
+        resultTextView = findViewById(R.id.result_intro);
+        resultTextView.setText(getString(getCharacterStringId(fakeAnalysisResult), getString(R.string.result_intro_content)));
 
     }
 
@@ -46,30 +46,30 @@ public class ResultsActivity extends AppCompatActivity {
      * @param analysisResult
      * @return
      */
-    private String getCharacterDisplayName(String analysisResult) {
+    private int getCharacterStringId(String analysisResult) {
 
         Character character = Character.valueOf(analysisResult);
         switch (character) {
             case BEN:
-                return getStringResource(R.string.ben_display_name);
+                return R.string.ben_display_name;
             case HAN:
-                return getStringResource(R.string.han_display_name);
+                return R.string.han_display_name;
             case LANDO:
-                return getStringResource(R.string.lando_display_name);
+                return R.string.lando_display_name;
             case LEIA:
-                return getStringResource(R.string.leia_display_name);
+                return R.string.leia_display_name;
             case LUKE:
-                return getStringResource(R.string.luke_display_name);
+                return R.string.luke_display_name;
             case THREEPIO:
-                return getStringResource(R.string.threepio_display_name);
+                return R.string.threepio_display_name;
             case VADER:
-                return getStringResource(R.string.vader_display_name);
+                return R.string.vader_display_name;
             case YODA:
-                return getStringResource(R.string.yoda_display_name);
+                return R.string.yoda_display_name;
             default:
-                return null;
-        }
+                return -1;
 
+        }
     }
 
     private String getStringResource(int id) {
