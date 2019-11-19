@@ -11,13 +11,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
-
+import com.google.gson.JsonObject;
 
 public class SearchActivity extends AppCompatActivity {
 
-    public static boolean DEV_MODE = true;
+    protected static Boolean DEV_MODE;
     private TextInputEditText twitterHandle;
-    private final int USERNAMELIMIT = 15;
+    private static String userName;
 
     //holds the twitter username entered
     //private static String twitterHandle = "";
@@ -27,21 +27,17 @@ public class SearchActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-
         /*Initializing views*/
         twitterHandle = findViewById(R.id.TwitterHandle);
-
         twitterHandle.addTextChangedListener(handleWatcher);
-        //twitterHandle.addTextChangedListener(watcher);
 
         setThreadPolicy();
 
     }
 
-    private void setThreadPolicy(){
+    private void setThreadPolicy() {
         int SDK_INT = android.os.Build.VERSION.SDK_INT;
-        if (SDK_INT > 8)
-        {
+        if (SDK_INT > 8) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                     .permitAll().build();
             StrictMode.setThreadPolicy(policy);
@@ -53,63 +49,49 @@ public class SearchActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (DEV_MODE) System.out.println("MAIN_ACTIVITY RESUMED FROM RESULTS_ACTIVITY");
+        System.out.println("MAIN_ACTIVITY RESUMED FROM RESULTS_ACTIVITY");
     }
 
     /**
      * OnClick action for 'launch_button'.
+     *
      * @param view Context current view.
      */
     public void goToTransitionActivity(View view) {
-        if (DEV_MODE) System.out.println("CURRENTLY SKIPPING TWITTER HANDLE VERIFICATION");
 
-        if (enteredTwitterHandleIsValid()) {
-            if (DEV_MODE) System.out.println("GOING TO TRANSITION_ACTIVITY FROM MAIN_ACTIVITY");
-            Intent intent = new Intent(this, TransitionActivity.class);
-            startActivity(intent);
-        } else {
+        JsonObject lambdaResponse = LambdaClient.execute(userName);
+
+        if (lambdaResponse.get("error") != null) {
             Snackbar.make(view, "Enter a valid Twitter handle, you must", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
+        } else {
+            System.out.println("GOING TO TRANSITION_ACTIVITY FROM MAIN_ACTIVITY");
+            Intent intent = new Intent(this, TransitionActivity.class);
+            startActivity(intent);
         }
-
     }
 
-    /**
-     * The method to verify if a user-entered Twitter handle is a valid, existing handle.
-     * Currently hard-coded for development.
-     * @return Whether or not the Twitter handle the user entered exists.
-     */
-    private boolean enteredTwitterHandleIsValid() {
 
-        // Needs implementation
-        return true;
+        private final TextWatcher handleWatcher = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-    }
-
-    private final TextWatcher handleWatcher = new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-        }
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-                twitterHandle.getText();
-
-        }
-
-        @Override
-        public void afterTextChanged(Editable s) {
-                String username = s.toString();
-                //if the character count is 15 and there is
-            //no more input from the keyboard
-            if(username.length() == USERNAMELIMIT){
-                twitterHandle.getText();
-                System.out.println(username);
             }
 
-        }
-    };
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                twitterHandle.getText();
 
-}
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                userName = s.toString();
+                twitterHandle.getText();
+                System.out.println(userName);
+
+
+            }
+        };
+    }
 
