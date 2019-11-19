@@ -21,18 +21,8 @@ public class LambdaClient {
 
    private static Gson gson = new Gson();
 
-
-   private static boolean isTwitterHandleValid(String handle){
-      return true;
-   }
-
    public static JsonObject execute(String handle){
-      if(isTwitterHandleValid(handle)) {
-         return getTweets(handle);
-      }
-      else{
-      return failedHandleValidation(handle);
-      }
+      return getTweets(handle);
    }
 
    private static JsonObject getTweets(String handle){
@@ -50,7 +40,6 @@ public class LambdaClient {
 
          JsonObject tweetsJson = gson.fromJson(tweetsString, JsonObject.class);
 
-         System.out.println(tweetsJson);
          in.close();
 
          if(tweetsJson.get(userExistsKeyName) != null){

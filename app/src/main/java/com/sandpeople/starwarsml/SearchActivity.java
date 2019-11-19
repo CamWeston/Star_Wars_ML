@@ -15,7 +15,7 @@ import com.google.gson.JsonObject;
 
 public class SearchActivity extends AppCompatActivity {
 
-    protected static Boolean DEV_MODE;
+    protected static Boolean DEV_MODE = true;
     private TextInputEditText twitterHandle;
     private static String userName;
 
@@ -60,12 +60,14 @@ public class SearchActivity extends AppCompatActivity {
     public void goToTransitionActivity(View view) {
 
         JsonObject lambdaResponse = LambdaClient.execute(userName);
-
+        if(DEV_MODE){
+            System.out.println(lambdaResponse.toString());
+        }
         if (lambdaResponse.get("error") != null) {
             Snackbar.make(view, "Enter a valid Twitter handle, you must", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
         } else {
-            System.out.println("GOING TO TRANSITION_ACTIVITY FROM MAIN_ACTIVITY");
+            if(DEV_MODE) System.out.println("GOING TO TRANSITION_ACTIVITY FROM MAIN_ACTIVITY");
             Intent intent = new Intent(this, TransitionActivity.class);
             startActivity(intent);
         }
@@ -80,17 +82,12 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                twitterHandle.getText();
 
             }
 
             @Override
             public void afterTextChanged(Editable s) {
                 userName = s.toString();
-                twitterHandle.getText();
-                System.out.println(userName);
-
-
             }
         };
     }
