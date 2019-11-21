@@ -7,6 +7,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static com.sandpeople.starwarsml.SearchActivity.DEV_MODE;
 
 @SuppressWarnings("JavaDoc")
@@ -15,6 +18,17 @@ public class ResultsActivity extends AppCompatActivity {
     String fakeAnalysisResult;
     String[] fakeTweets;
     TextView resultTextView;
+    HashMap<String,String> charToForce = new HashMap<String, String>(){{
+        put("Obi-Wan Kenobi", "Rebellion");
+        put("Han Solo", "Rebellion");
+        put("Lando Calrissian", "Rebellion");
+        put("Princess Leia", "Rebellion");
+        put("Luke Skywalker", "Rebellion");
+        put("C-3PO", "Rebellion");
+        put("Darth Vader", "Empire");
+        put("Yoda", "Rebellion");
+    }};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

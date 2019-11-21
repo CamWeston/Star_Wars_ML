@@ -19,9 +19,6 @@ public class SearchActivity extends AppCompatActivity {
     private TextInputEditText twitterHandle;
     private static String userName;
 
-    //holds the twitter username entered
-    //private static String twitterHandle = "";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -60,6 +57,7 @@ public class SearchActivity extends AppCompatActivity {
     public void goToTransitionActivity(View view) {
 
         JsonObject lambdaResponse = LambdaClient.execute(userName);
+
         if(DEV_MODE){
             System.out.println(lambdaResponse.toString());
         }
