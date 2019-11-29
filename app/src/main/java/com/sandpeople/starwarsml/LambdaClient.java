@@ -32,7 +32,7 @@ class LambdaClient {
       return getTweets(handle);
    }
 
-   static void predictCharacter(JsonObject tweets) throws IOException {
+   static String predictCharacter(JsonObject tweets) throws IOException {
 
       // Send request
       HttpURLConnection urlConnection = (HttpURLConnection) new URL(mlApiEndpoint).openConnection();
@@ -49,8 +49,9 @@ class LambdaClient {
       // Receive response
       BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
       String response = bufferedReader.readLine();
-      System.out.println(response);
       bufferedReader.close();
+
+      return response;
 
    }
 
