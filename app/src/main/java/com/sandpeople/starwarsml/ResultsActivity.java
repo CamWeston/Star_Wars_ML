@@ -8,7 +8,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import static com.sandpeople.starwarsml.SearchActivity.DEV_MODE;
 
@@ -34,10 +33,6 @@ public class ResultsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
-
-        fakeAnalysisResult = "BEN";
-        fakeTweets = new String[]{"This is a tweet", "This is another tweet"};
-
         resultTextView = findViewById(R.id.result_intro);
         resultTextView.setText(getString(getCharacterStringId(fakeAnalysisResult), getString(R.string.result_intro_content)));
 
