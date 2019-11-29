@@ -14,8 +14,7 @@ import static com.sandpeople.starwarsml.SearchActivity.DEV_MODE;
 @SuppressWarnings("JavaDoc")
 public class ResultsActivity extends AppCompatActivity {
 
-    String fakeAnalysisResult;
-    String[] fakeTweets;
+    String predictedCharacter = "";
     TextView resultTextView;
     HashMap<String,String> charToForce = new HashMap<String, String>(){{
         put("Obi-Wan Kenobi", "Rebellion");
@@ -34,14 +33,14 @@ public class ResultsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
         resultTextView = findViewById(R.id.result_intro);
-        resultTextView.setText(getString(getCharacterStringId(fakeAnalysisResult), getString(R.string.result_intro_content)));
-
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         if (DEV_MODE) System.out.println("RESUMED RESULTS_ACTIVITY FROM TRANSITION_ACTIVITY");
+        predictedCharacter = getIntent().getStringExtra("predictedCharacter");
+        
     }
 
     public void closeThis(View view) {

@@ -21,15 +21,16 @@ public class TransitionActivity extends AppCompatActivity {
 
         // Temporary implementation: can switch to check for full download of data and immediately switch.
         new Timer().schedule(
-                new TimerTask() {
-                    @Override
-                    public void run() {
-                        if (DEV_MODE) System.out.println("GOING TO RESULTS_ACTIVITY FROM TRANSITION_ACTIVITY");
-                        Intent intent = new Intent(getApplicationContext(), ResultsActivity.class);
-                        startActivity(intent);
-                    }
-                },
-                TRANSITION_DELAY
+            new TimerTask() {
+                @Override
+                public void run() {
+                    if (DEV_MODE) System.out.println("GOING TO RESULTS_ACTIVITY FROM TRANSITION_ACTIVITY");
+                    Intent intent = new Intent(getApplicationContext(), ResultsActivity.class);
+                    intent.putExtra("predictedCharacter", getIntent().getStringExtra("predictedCharacter"));
+                    startActivity(intent);
+                }
+            },
+            TRANSITION_DELAY
         );
 
     }
