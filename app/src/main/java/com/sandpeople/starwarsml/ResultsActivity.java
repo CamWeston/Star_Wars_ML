@@ -15,7 +15,7 @@ import static com.sandpeople.starwarsml.SearchActivity.DEV_MODE;
 public class ResultsActivity extends AppCompatActivity {
 
     String predictedCharacter = "";
-    TextView resultTextView;
+    TextView predictedCharacterName;
     HashMap<String,String> charToForce = new HashMap<String, String>(){{
         put("Obi-Wan Kenobi", "Rebellion");
         put("Han Solo", "Rebellion");
@@ -32,15 +32,21 @@ public class ResultsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
-        resultTextView = findViewById(R.id.result_intro);
+        predictedCharacterName = findViewById(R.id.character_name);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         if (DEV_MODE) System.out.println("RESUMED RESULTS_ACTIVITY FROM TRANSITION_ACTIVITY");
+
+        // Collect delivered data and setup the UI
         predictedCharacter = getIntent().getStringExtra("predictedCharacter");
-        
+        setupActivityUi();
+    }
+
+    private void setupActivityUi() {
+        predictedCharacterName.setText(getCharacterStringId(predictedCharacter));
     }
 
     public void closeThis(View view) {

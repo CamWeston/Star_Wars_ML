@@ -9,17 +9,18 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_results">ResultsActivity</string>
 
-    <string name="ben_display_name">%1$s Obi-Wan Kenobi</string>
-    <string name="han_display_name">%1$s Han Solo</string>
-    <string name="lando_display_name">%1$s Lando Calrissian</string>
-    <string name="leia_display_name">%1$s Princess Leia</string>
-    <string name="luke_display_name">%1$s Luke Skywalker</string>
-    <string name="threepio_display_name">%1$s C-3PO</string>
-    <string name="vader_display_name">%1$s Darth Vader</string>
-    <string name="yoda_display_name">%1$s Yoda</string>
-    <string name="display_name">NIL</string>
+    <string name="ben_display_name">Obi-Wan Kenobi</string>
+    <string name="han_display_name">Han Solo</string>
+    <string name="lando_display_name">Lando Calrissian</string>
+    <string name="leia_display_name">Princess Leia</string>
+    <string name="luke_display_name">Luke Skywalker</string>
+    <string name="threepio_display_name">C-3PO</string>
+    <string name="vader_display_name">Darth Vader</string>
+    <string name="yoda_display_name">Yoda</string>
+    <string name="character_display_name">Star Wars Character</string>
     <string name="star_wars_ml">Star Wars ML</string>
 
-    <string name="result_intro_content">You\'ve been identified as</string>
+    <string name="result_intro_content">Target identified as</string>
+    <string name="character_profile_content">Contains the image of the predicted Star Wars character</string>
 
 </resources>
