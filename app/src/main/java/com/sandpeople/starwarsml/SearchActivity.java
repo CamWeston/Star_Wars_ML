@@ -12,6 +12,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.gson.JsonObject;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.List;
+
 
 public class SearchActivity extends AppCompatActivity {
 
@@ -56,11 +62,24 @@ public class SearchActivity extends AppCompatActivity {
      */
     public void goToTransitionActivity(View view) {
 
+        if (DEV_MODE) userName = "elonmusk";
         JsonObject lambdaResponse = LambdaClient.execute(userName);
+        lambdaResponse.remove("prof_image");
+        lambdaResponse.remove("user_exists");
 
-        if(DEV_MODE){
-            System.out.println(lambdaResponse.toString());
+        try {
+            LambdaClient.predictCharacter(lambdaResponse);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
+        if (DEV_MODE) {
+            Type type = new TypeToken<List<String>>(){}.getType();
+            String data = lambdaResponse.get("tweets").toString();
+            List<String> tweets = LambdaClient.gson.fromJson(data, type);
+            System.out.println(tweets);
+        }
+
         if (lambdaResponse.get("error") != null) {
             Snackbar.make(view, "Enter a valid Twitter handle, you must", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
@@ -69,6 +88,7 @@ public class SearchActivity extends AppCompatActivity {
             Intent intent = new Intent(this, TransitionActivity.class);
             startActivity(intent);
         }
+
     }
 
 

@@ -3,14 +3,21 @@ package com.sandpeople.starwarsml;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 
 
-public class LambdaClient {
+class LambdaClient {
    private static final String getTweetsEndpoint = "https://sirxl7b15l.execute-api.us-east-1.amazonaws.com/default/twitterAPI";
+   private static final String mlApiEndpoint = "https://us-central1-cs275-ml-api-260320.cloudfunctions.net/main";
    private static final String userExistsKeyName = "user_exists";
    private static final String tweetsKeyName = "tweets";
    private static final String handleHeaderName = "Handle";
@@ -19,10 +26,32 @@ public class LambdaClient {
    private static final String failureToGetTweetsMsg = "Failed to get tweets for ";
    private static final String failureToValidateHandleMsg = "Failed twitter validation for ";
 
-   private static Gson gson = new Gson();
+   static Gson gson = new Gson();
 
-   public static JsonObject execute(String handle){
+   static JsonObject execute(String handle){
       return getTweets(handle);
+   }
+
+   static void predictCharacter(JsonObject tweets) throws IOException {
+
+      // Send request
+      HttpURLConnection urlConnection = (HttpURLConnection) new URL(mlApiEndpoint).openConnection();
+      urlConnection.setRequestProperty("Content-Type", "application/json");
+      urlConnection.setDoOutput(true);
+      urlConnection.setDoInput(true);
+      OutputStream out = new BufferedOutputStream(urlConnection.getOutputStream());
+      BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(out));
+      writer.write(gson.toJson(tweets));
+      writer.flush();
+      writer.close();
+      out.close();
+
+      // Receive response
+      BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+      String response = bufferedReader.readLine();
+      System.out.println(response);
+      bufferedReader.close();
+
    }
 
    private static JsonObject getTweets(String handle){

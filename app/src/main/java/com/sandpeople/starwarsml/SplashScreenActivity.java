@@ -3,7 +3,6 @@ package com.sandpeople.starwarsml;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -18,7 +17,8 @@ public class SplashScreenActivity extends AppCompatActivity {
     private int progressPercent = 0;
     TextView progress;
     TextView title;
-    final long period = 100;
+//    final long period = 100;
+    final long period = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
