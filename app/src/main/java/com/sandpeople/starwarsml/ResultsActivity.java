@@ -92,7 +92,7 @@ public class ResultsActivity extends AppCompatActivity {
                 setCharacterImage(R.drawable.yoda_profile);
                 break;
         }
-        
+
     }
 
     private void setCharacterImage(int resource) {

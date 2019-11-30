@@ -37,7 +37,10 @@ public class TransitionActivity extends AppCompatActivity {
                 } else {
                     System.out.println("Timer finished");
                     timer.cancel();
-                    finish();
+                    if (DEV_MODE) System.out.println("GOING TO RESULTS_ACTIVITY FROM TRANSITION_ACTIVITY");
+                    Intent intent = new Intent(getApplicationContext(), ResultsActivity.class);
+                    intent.putExtra("predictedCharacter", getIntent().getStringExtra("predictedCharacter"));
+                    startActivity(intent);
                 }
             }
         }, 0, period);
@@ -49,19 +52,19 @@ public class TransitionActivity extends AppCompatActivity {
         super.onResume();
     }
 
-    private void transition() {
-        new Timer().schedule(
-            new TimerTask() {
-                @Override
-                public void run() {
-                    if (DEV_MODE) System.out.println("GOING TO RESULTS_ACTIVITY FROM TRANSITION_ACTIVITY");
-                    Intent intent = new Intent(getApplicationContext(), ResultsActivity.class);
-                    intent.putExtra("predictedCharacter", getIntent().getStringExtra("predictedCharacter"));
-                    startActivity(intent);
-                }
-            },
-            TRANSITION_DELAY
-        );
-    }
+//    private void transition() {
+//        new Timer().schedule(
+//            new TimerTask() {
+//                @Override
+//                public void run() {
+//                    if (DEV_MODE) System.out.println("GOING TO RESULTS_ACTIVITY FROM TRANSITION_ACTIVITY");
+//                    Intent intent = new Intent(getApplicationContext(), ResultsActivity.class);
+//                    intent.putExtra("predictedCharacter", getIntent().getStringExtra("predictedCharacter"));
+//                    startActivity(intent);
+//                }
+//            },
+//            TRANSITION_DELAY
+//        );
+//    }
 
 }

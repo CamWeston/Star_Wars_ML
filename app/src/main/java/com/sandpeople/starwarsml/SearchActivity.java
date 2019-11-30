@@ -45,7 +45,7 @@ public class SearchActivity extends AppCompatActivity {
         setThreadPolicy();
 
         // DEV
-        goToTransitionActivity();
+//        goToTransitionActivity();
 
     }
 
