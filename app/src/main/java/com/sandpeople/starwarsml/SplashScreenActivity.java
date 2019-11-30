@@ -17,7 +17,6 @@ public class SplashScreenActivity extends AppCompatActivity {
     private int progressPercent = 0;
     TextView progress;
     TextView title;
-//    final long period = 100;
     final long period = 1;
 
     @Override
@@ -39,12 +38,7 @@ public class SplashScreenActivity extends AppCompatActivity {
             public void run() {
                 //this repeats every 100 ms
                 if (progressPercent<100){
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            progress.setText(String.valueOf(progressPercent)+"%");
-                        }
-                    });
+                    runOnUiThread(() -> progress.setText(progressPercent +"%"));
                     progressBar.setProgress(progressPercent);
                     progressPercent++;
                 }else{
