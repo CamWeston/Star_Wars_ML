@@ -9,13 +9,13 @@
     <include
         android:id="@+id/include"
         layout="@layout/content_results"
-        tools:layout_editor_absoluteX="-73dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="16dp" />
 
     <ImageView
         android:id="@+id/character_profile"
-        android:layout_width="220dp"
-        android:layout_height="200dp"
+        android:layout_width="320dp"
+        android:layout_height="288dp"
         android:adjustViewBounds="false"
         android:contentDescription="TODO"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -78,10 +78,9 @@
         android:layout_marginTop="84dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.793"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/character_profile"
-        app:layout_constraintVertical_bias="0.134"
+        app:layout_constraintVertical_bias="0.674"
         app:srcCompat="@drawable/empire_profile" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
