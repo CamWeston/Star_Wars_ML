@@ -3,6 +3,7 @@ package com.sandpeople.starwarsml;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,16 +16,18 @@ import static com.sandpeople.starwarsml.SearchActivity.DEV_MODE;
 public class ResultsActivity extends AppCompatActivity {
 
     String predictedCharacter = "";
-    TextView predictedCharacterName;
+    TextView characterName;
+    ImageView characterProfile;
+    ImageView forceSide;
     HashMap<String,String> charToForce = new HashMap<String, String>(){{
-        put("Obi-Wan Kenobi", "Rebellion");
-        put("Han Solo", "Rebellion");
-        put("Lando Calrissian", "Rebellion");
-        put("Princess Leia", "Rebellion");
-        put("Luke Skywalker", "Rebellion");
-        put("C-3PO", "Rebellion");
-        put("Darth Vader", "Empire");
-        put("Yoda", "Rebellion");
+        put("BEN", "r");
+        put("HAN", "r");
+        put("LANDO", "r");
+        put("LEIA", "r");
+        put("LUKE", "r");
+        put("THREEPIO", "r");
+        put("VADER", "Empire");
+        put("YODA", "r");
     }};
 
 
@@ -32,7 +35,9 @@ public class ResultsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
-        predictedCharacterName = findViewById(R.id.character_name);
+        characterName = findViewById(R.id.character_name);
+        characterProfile = findViewById(R.id.character_profile);
+        forceSide = findViewById(R.id.force_side);
     }
 
     @Override
@@ -45,11 +50,18 @@ public class ResultsActivity extends AppCompatActivity {
         setupActivityUi();
     }
 
+
     private void setupActivityUi() {
-        predictedCharacterName.setText(getCharacterStringId(predictedCharacter));
+        characterName.setText(getCharacterStringId(predictedCharacter));
+        characterProfile.setImageResource(R.drawable.threepio_profile);
+        if (predictedCharacter.equals("VADER")) {
+            forceSide.setImageResource(R.drawable.empire_profile);
+        } else {
+            forceSide.setImageResource(R.drawable.rebellion_profile);
+        }
     }
 
-    public void closeThis(View view) {
+    public void close(View view) {
         if (DEV_MODE) System.out.println("GOING TO MAIN_ACTIVITY FROM RESULTS_ACTIVITY");
         Intent intent = new Intent(this, SearchActivity.class);
         startActivity(intent);

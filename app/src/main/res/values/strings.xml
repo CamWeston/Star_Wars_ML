@@ -9,6 +9,7 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_results">ResultsActivity</string>
 
+    <!-- Star Wars character names -->
     <string name="ben_display_name">Obi-Wan Kenobi</string>
     <string name="han_display_name">Han Solo</string>
     <string name="lando_display_name">Lando Calrissian</string>
@@ -20,7 +21,9 @@
     <string name="character_display_name">Star Wars Character</string>
     <string name="star_wars_ml">Star Wars ML</string>
 
+    <!-- ResultsActivity -->
     <string name="result_intro_content">Target identified as</string>
     <string name="character_profile_content">Contains the image of the predicted Star Wars character</string>
+    <string name="close_results_activity_text">Back</string>
 
 </resources>

@@ -14,23 +14,25 @@
 
     <ImageView
         android:id="@+id/character_profile"
-        android:layout_width="133dp"
-        android:layout_height="123dp"
+        android:layout_width="220dp"
+        android:layout_height="200dp"
+        android:adjustViewBounds="false"
         android:contentDescription="TODO"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/result_intro"
         app:layout_constraintVertical_bias="0.07999998"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:srcCompat="@drawable/vader_profile" />
 
     <TextView
         android:id="@+id/result_intro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:fontFamily="@font/press_start_2p"
         android:text="@string/result_intro_content"
-        android:textSize="30sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/include"
@@ -41,9 +43,12 @@
         android:layout_width="126dp"
         android:layout_height="52dp"
         android:layout_marginBottom="12dp"
-        android:background="@drawable/rounded_edges"
-        android:onClick="closeThis"
-        android:text="BACK"
+        android:background="@drawable/rounded_button"
+        android:fontFamily="@font/press_start_2p"
+        android:onClick="close"
+        android:text="@string/close_results_activity_text"
+        android:textAlignment="center"
+        android:textColor="#0C0B0B"
         app:layout_constraintBottom_toBottomOf="@+id/include"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
@@ -55,9 +60,10 @@
         android:id="@+id/character_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/press_start_2p"
         android:text="@string/character_display_name"
         android:textAlignment="center"
-        android:textSize="36sp"
+        android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@+id/close_results_activity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -66,16 +72,16 @@
         app:layout_constraintVertical_bias="0.23000002" />
 
     <ImageView
-        android:id="@+id/forceSide"
+        android:id="@+id/force_side"
         android:layout_width="81dp"
         android:layout_height="70dp"
         android:layout_marginTop="84dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.696"
+        app:layout_constraintHorizontal_bias="0.793"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/character_profile"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/empire" />
+        app:layout_constraintVertical_bias="0.134"
+        app:srcCompat="@drawable/empire_profile" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
