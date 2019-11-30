@@ -39,7 +39,7 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        /*Initializing views*/
+        // Initializing views
         twitterHandleInput = findViewById(R.id.twitter_handle);
         twitterHandleInput.addTextChangedListener(handleWatcher);
         setThreadPolicy();
