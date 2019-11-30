@@ -9,20 +9,35 @@
     <include
         android:id="@+id/include2"
         layout="@layout/content_transition"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="40dp" />
+        tools:layout_editor_absoluteX="-32dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <ProgressBar
         android:id="@+id/transition_progress_bar"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="196dp"
+        android:layout_width="198dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:progressTint="#CC0075DD"
+        android:scaleY="2.6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.81"
+        app:layout_constraintStart_toStartOf="@+id/include2"
+        app:layout_constraintTop_toTopOf="@+id/include2" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="173dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="17dp"
+        app:layout_constraintBottom_toBottomOf="@+id/include2"
+        app:layout_constraintEnd_toStartOf="@+id/transition_progress_bar"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/include2"
         app:layout_constraintTop_toTopOf="@+id/include2"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintVertical_bias="0.499"
+        app:srcCompat="@drawable/lightsaber_handle" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

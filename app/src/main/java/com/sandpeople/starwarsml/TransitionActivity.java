@@ -1,6 +1,7 @@
 package com.sandpeople.starwarsml;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.ProgressBar;
 
@@ -13,19 +14,18 @@ import static com.sandpeople.starwarsml.SearchActivity.DEV_MODE;
 
 public class TransitionActivity extends AppCompatActivity {
 
-    private final int TRANSITION_DELAY = 1000;
     private ProgressBar progressBar;
     private int progress;
-    private final long period = 100;
+    final private long period = 1; // Update to 45 when development is complete.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transition);
 
         progressBar = findViewById(R.id.transition_progress_bar);
-//        progressBar.getProgressDrawable().setColorFilter(Color.RED, android.graphics.PorterDuff.Mode.SRC_IN);
-        progressBar.setProgressDrawable(getDrawable(R.drawable.progress_bar_custom_style));
+        progressBar.getProgressDrawable().setColorFilter(Color.RED, android.graphics.PorterDuff.Mode.SRC_IN);
         progressBar.setProgress(0);
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
@@ -35,15 +35,10 @@ public class TransitionActivity extends AppCompatActivity {
                     progressBar.setProgress(progress);
                     progress++;
                 } else {
-                    System.out.println("Timer finished");
                     timer.cancel();
-                    if (DEV_MODE) System.out.println("GOING TO RESULTS_ACTIVITY FROM TRANSITION_ACTIVITY");
-                    Intent intent = new Intent(getApplicationContext(), ResultsActivity.class);
-                    intent.putExtra("predictedCharacter", getIntent().getStringExtra("predictedCharacter"));
-                    startActivity(intent);
+                    goToResultsActivity();
                 }
-            }
-        }, 0, period);
+        }}, 0, period);
 
     }
 
@@ -52,19 +47,11 @@ public class TransitionActivity extends AppCompatActivity {
         super.onResume();
     }
 
-//    private void transition() {
-//        new Timer().schedule(
-//            new TimerTask() {
-//                @Override
-//                public void run() {
-//                    if (DEV_MODE) System.out.println("GOING TO RESULTS_ACTIVITY FROM TRANSITION_ACTIVITY");
-//                    Intent intent = new Intent(getApplicationContext(), ResultsActivity.class);
-//                    intent.putExtra("predictedCharacter", getIntent().getStringExtra("predictedCharacter"));
-//                    startActivity(intent);
-//                }
-//            },
-//            TRANSITION_DELAY
-//        );
-//    }
+    private void goToResultsActivity() {
+        if (DEV_MODE) System.out.println("GOING TO RESULTS_ACTIVITY FROM TRANSITION_ACTIVITY");
+        Intent intent = new Intent(getApplicationContext(), ResultsActivity.class);
+        intent.putExtra("predictedCharacter", getIntent().getStringExtra("predictedCharacter"));
+        startActivity(intent);
+    }
 
 }
