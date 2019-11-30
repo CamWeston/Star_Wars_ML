@@ -55,15 +55,12 @@ public class SearchActivity extends AppCompatActivity {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll()
                     .build();
             StrictMode.setThreadPolicy(policy);
-            //your codes here
-
         }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        System.out.println("MAIN_ACTIVITY RESUMED FROM RESULTS_ACTIVITY");
     }
 
     /**
