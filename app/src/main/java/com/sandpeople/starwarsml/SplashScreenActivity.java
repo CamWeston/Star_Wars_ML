@@ -17,21 +17,20 @@ public class SplashScreenActivity extends AppCompatActivity {
     private int progressPercent = 0;
     TextView progress;
     TextView title;
-//    final long period = 100;
-    final long period = 1;
+    final long period = 1;  // Update to 100 when development is complete.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
         title = findViewById(R.id.AppName);
         progressBar= findViewById(R.id.progressBar);
         progressBar.getProgressDrawable().setColorFilter(
                 Color.RED, android.graphics.PorterDuff.Mode.SRC_IN);
         progressBar.setProgress(0);
         progress = findViewById(R.id.ProgressPercentage);
-
-
 
         timer=new Timer();
         timer.schedule(new TimerTask() {
