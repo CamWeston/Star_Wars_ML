@@ -17,7 +17,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     private int progressPercent = 0;
     TextView progress;
     TextView title;
-    final long period = 1;  // Update to 100 when development is complete.
+    final long period = 100;  // Update to 100 when development is complete.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

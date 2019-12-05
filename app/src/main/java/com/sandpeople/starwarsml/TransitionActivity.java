@@ -16,7 +16,7 @@ public class TransitionActivity extends AppCompatActivity {
 
     private ProgressBar progressBar;
     private int progress;
-    final private long period = 1; // Update to 45 when development is complete.
+    final private long period = 45; // Update to 45 when development is complete.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
