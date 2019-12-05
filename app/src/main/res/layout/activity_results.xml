@@ -12,6 +12,17 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="16dp" />
 
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/results_background"
+        android:scaleType="fitXY"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-44dp">
+
+    </ImageView>
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/character_profile"
         android:layout_width="120dp"
