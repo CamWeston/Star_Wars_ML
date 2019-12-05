@@ -73,7 +73,6 @@ public class SearchActivity extends AppCompatActivity {
         // Get entered twitter handle.
         Editable editable = twitterHandleInput.getText();
         twitterHandle = editable == null ? "" : editable.toString();
-        if (DEV_MODE) twitterHandle = "elonmusk";
 
         // Execute the Lambda.
         new Lambda(this).execute();
